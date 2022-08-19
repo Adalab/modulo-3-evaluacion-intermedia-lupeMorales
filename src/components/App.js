@@ -1,4 +1,4 @@
-import "../styles/App.css";
+import "../styles/App.scss";
 import { useState, useEffect } from "react";
 /* import dataJSON from "../data/quotes.json"; load datas from jason */
 import dataAPI from "../services/api";
@@ -7,10 +7,9 @@ function App() {
   // load datas from jason
   /* const [data, setData] = useState(dataJSON); */
   const [data, setData] = useState([]);
-
   const [newQuote, setNewQuote] = useState({ quote: "", character: "" });
   const [inputFilterQuote, setInputFilterQuote] = useState("");
-  const [inputFilterCharacter, setInputFilterCharacter] = useState("--");
+  const [inputFilterCharacter, setInputFilterCharacter] = useState("all");
 
   useEffect(() => {
     dataAPI().then((responseApi) => setData(responseApi));
@@ -39,14 +38,13 @@ function App() {
       return item.quote
         .toLowerCase()
         .includes(inputFilterQuote.toLocaleLowerCase());
-      /*  item.character.includes(inputFilterCharacter) */
     })
-    /*    .filter((item) => {
-      if (item.character === inputFilterCharacter) {
-        console.log(item.quote);
+    .filter((item) => {
+      if (inputFilterCharacter === "all") {
+        return true;
       }
-      return 
-    }) */
+      return item.character === inputFilterCharacter;
+    })
 
     .map((item, index) => {
       return (
@@ -62,31 +60,35 @@ function App() {
   };
   return (
     <div className="App">
-      <h1>Frases de Friends</h1>
-      <form>
-        <label htmlFor="filter">Filtrar por frase</label>
-        <input
-          type="search"
-          name="searchQuote"
-          value={inputFilterQuote}
-          onChange={handleFilterQuote}
-        ></input>
-        <label htmlFor="filterCharacter">Filtrar por personaje</label>
-        <select
-          name="filterCharacter"
-          id="filterCharacter"
-          value={inputFilterCharacter}
-          onChange={handleFilterCharacter}
-        >
-          <option>--</option>
-          <option>Chandler</option>
-          <option>Joey</option>
-          <option>Monica</option>
-          <option>Phoebe</option>
-          <option>Rachel</option>
-          <option>Ross</option>
-        </select>
-      </form>
+      <header className="header">
+        <h1 className="header__title">Frases de Friends</h1>
+        <form className="header__search">
+          <label htmlFor="filter">Filtrar por frase</label>
+          <input
+            type="search"
+            name="searchQuote"
+            value={inputFilterQuote}
+            onChange={handleFilterQuote}
+          ></input>
+          <label htmlFor="filterCharacter">
+            Filtrar por personaje
+            <select
+              name="filterCharacter"
+              id="filterCharacter"
+              value={inputFilterCharacter}
+              onChange={handleFilterCharacter}
+            >
+              <option value="all">--</option>
+              <option value="Chandler">Chandler</option>
+              <option value="Joey">Joey</option>
+              <option value="Monica">Monica</option>
+              <option value="Phoebe">Phoebe</option>
+              <option value="Rachel">Rachel</option>
+              <option value="Ross">Ross</option>
+            </select>
+          </label>
+        </form>
+      </header>
 
       <ul>{renderQuotes}</ul>
       <form>
