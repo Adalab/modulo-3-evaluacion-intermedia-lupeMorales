@@ -36,6 +36,7 @@ function App() {
         <input
           type="text"
           name="quote"
+          placeholder="Añade una frase..."
           id="quote"
           value={newQuote.quote}
           onChange={handleNewQuote}
@@ -44,13 +45,14 @@ function App() {
         <input
           type="text"
           name="character"
+          placeholder="Añade el personaje"
           id="character"
           value={newQuote.character}
           onChange={handleNewQuote}
         ></input>
         <input
           type="submit"
-          value="ñAadir una nueva frase"
+          value="Añadir una nueva frase"
           onClick={handleClickNewQuote}
         ></input>
       </form>
