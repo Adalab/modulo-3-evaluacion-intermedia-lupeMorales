@@ -13,6 +13,7 @@ function App() {
   const handleClickNewQuote = (ev) => {
     ev.preventDefault();
     console.log("reina del martes santo");
+    setData([...data, newQuote]);
   };
 
   const renderQuotes = data.map((item, index) => {
@@ -49,7 +50,7 @@ function App() {
         ></input>
         <input
           type="submit"
-          value="añadir"
+          value="ñAadir una nueva frase"
           onClick={handleClickNewQuote}
         ></input>
       </form>
