@@ -6,7 +6,7 @@
   height: 300px;
   width: 100%;
   margin-bottom: 2rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 10px;
   border-bottom: 1px solid #eee;
   background-image: url("../../images/img.jpg");
   background-position: center;
@@ -14,17 +14,26 @@
   background-size: cover;
 
   &__title {
-    font-size: 2.5rem;
-    color: #eee;
+    padding: 0 10px;
+    margin-bottom: 8px;
+    font-size: 2rem;
+    color: #94b49f;
+    background-color: #f8f8f8;
+    border-radius: 05rem;
   }
 
   &__search {
+    display: flex;
+    flex-direction: column;
     padding: 0.5rem;
     width: 70%;
     border: 2px solid #ddd;
     border-radius: 0.5rem;
     background-color: #f8f8f8;
     outline: none;
+    @media all and (min-width: 768px) {
+      flex-direction: row;
+    }
   }
   &__label {
     display: inline;
