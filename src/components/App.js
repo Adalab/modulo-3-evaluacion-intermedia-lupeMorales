@@ -6,7 +6,9 @@ function App() {
   const [data, setData] = useState(dataAPI);
   const [newQuote, setNewQuote] = useState({ quote: "", character: "" });
 
-  const handleNewQuote = () => {};
+  const handleNewQuote = (ev) => {
+    setNewQuote({ ...newQuote, [ev.target.id]: ev.target.value });
+  };
 
   const handleClickNewQuote = (ev) => {
     ev.preventDefault();
@@ -32,7 +34,8 @@ function App() {
         <label>Frase</label>
         <input
           type="text"
-          name="quotes"
+          name="quote"
+          id="quote"
           value={newQuote.quote}
           onChange={handleNewQuote}
         ></input>
@@ -40,6 +43,7 @@ function App() {
         <input
           type="text"
           name="character"
+          id="character"
           value={newQuote.character}
           onChange={handleNewQuote}
         ></input>
