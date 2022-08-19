@@ -30,7 +30,6 @@ function App() {
 
   const handleClickNewQuote = (ev) => {
     ev.preventDefault();
-    console.log("reina del martes santo");
     setData([...data, newQuote]);
     resetInput();
   };
@@ -42,6 +41,12 @@ function App() {
         .includes(inputFilterQuote.toLocaleLowerCase());
       /*  item.character.includes(inputFilterCharacter) */
     })
+    /*    .filter((item) => {
+      if (item.character === inputFilterCharacter) {
+        console.log(item.quote);
+      }
+      return 
+    }) */
 
     .map((item, index) => {
       return (
