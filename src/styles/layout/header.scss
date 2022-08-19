@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   height: 300px;
+  width: 100%;
   margin-bottom: 2rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #eee;
@@ -24,15 +25,16 @@
     border-radius: 0.5rem;
     background-color: #f8f8f8;
     outline: none;
-    transition: all ease 0.3s;
-
-    & input {
-      margin-bottom: 5px;
-    }
-
-    &:focus {
-      border-color: #a349a4;
-      background-color: #fff;
-    }
+  }
+  &__label {
+    display: inline;
+    font-size: 1rem;
+    margin: 0 15px;
+  }
+  &__text {
+    padding: 0.15rem 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #666;
+    outline: none;
   }
 }

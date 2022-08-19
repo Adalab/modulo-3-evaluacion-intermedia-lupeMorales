@@ -48,7 +48,7 @@ function App() {
 
     .map((item, index) => {
       return (
-        <li key={index}>
+        <li className="quote__item" key={index}>
           <p>
             {item.quote} - {item.character}
           </p>
@@ -63,57 +63,72 @@ function App() {
       <header className="header">
         <h1 className="header__title">Frases de Friends</h1>
         <form className="header__search">
-          <label htmlFor="filter">Filtrar por frase</label>
+          <label className="header__label" htmlFor="filter">
+            Filtrar por frase
+          </label>
           <input
+            className="header__text"
             type="search"
             name="searchQuote"
             value={inputFilterQuote}
             onChange={handleFilterQuote}
           ></input>
-          <label htmlFor="filterCharacter">
+          <label className="header__label" htmlFor="filterCharacter">
             Filtrar por personaje
-            <select
-              name="filterCharacter"
-              id="filterCharacter"
-              value={inputFilterCharacter}
-              onChange={handleFilterCharacter}
-            >
-              <option value="all">--</option>
-              <option value="Chandler">Chandler</option>
-              <option value="Joey">Joey</option>
-              <option value="Monica">Monica</option>
-              <option value="Phoebe">Phoebe</option>
-              <option value="Rachel">Rachel</option>
-              <option value="Ross">Ross</option>
-            </select>
           </label>
+          <select
+            className="header__text"
+            name="filterCharacter"
+            id="filterCharacter"
+            value={inputFilterCharacter}
+            onChange={handleFilterCharacter}
+          >
+            <option value="all">--</option>
+            <option value="Chandler">Chandler</option>
+            <option value="Joey">Joey</option>
+            <option value="Monica">Monica</option>
+            <option value="Phoebe">Phoebe</option>
+            <option value="Rachel">Rachel</option>
+            <option value="Ross">Ross</option>
+          </select>
         </form>
       </header>
 
-      <ul>{renderQuotes}</ul>
-      <form>
-        <h2>Añadir una nueva frase</h2>
-        <label htmlFor="quote">Frase</label>
+      <ul className="quote__list">{renderQuotes}</ul>
+      <form className="form form__container">
+        <h2 className="form__title">Añadir una nueva frase:</h2>
+
+        <div className="form__inputs">
+          <label className="form__label" htmlFor="quote">
+            Frase
+          </label>
+          <input
+            className="form__text"
+            type="text"
+            name="quote"
+            placeholder="Añade una frase"
+            id="quote"
+            value={newQuote.quote}
+            onChange={handleNewQuote}
+          ></input>
+          <label className="form__label" htmlFor="char">
+            Personaje
+          </label>
+          <input
+            className="form__text"
+            type="text"
+            name="character"
+            placeholder="Añade personaje"
+            id="character"
+            value={newQuote.character}
+            onChange={handleNewQuote}
+          ></input>
+        </div>
+
         <input
-          type="text"
-          name="quote"
-          placeholder="Añade una frase..."
-          id="quote"
-          value={newQuote.quote}
-          onChange={handleNewQuote}
-        ></input>
-        <label htmlFor="char">Personaje</label>
-        <input
-          type="text"
-          name="character"
-          placeholder="Añade el personaje"
-          id="character"
-          value={newQuote.character}
-          onChange={handleNewQuote}
-        ></input>
-        <input
+          className="form__btn"
           type="submit"
-          value="Añadir una nueva frase"
+          value="Añadir"
           onClick={handleClickNewQuote}
         ></input>
       </form>
