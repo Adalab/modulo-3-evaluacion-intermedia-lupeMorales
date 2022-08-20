@@ -2,11 +2,12 @@ import "../styles/App.scss";
 import { useState, useEffect } from "react";
 /* import dataJSON from "../data/quotes.json"; load datas from jason */
 import dataAPI from "../services/api";
+import localStorage from "../services/localStorage";
 
 function App() {
   // load datas from jason
   /* const [data, setData] = useState(dataJSON); */
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(localStorage.get("quote", []));
   const [newQuote, setNewQuote] = useState({ quote: "", character: "" });
   const [inputFilterQuote, setInputFilterQuote] = useState("");
   const [inputFilterCharacter, setInputFilterCharacter] = useState("all");
@@ -14,6 +15,10 @@ function App() {
   useEffect(() => {
     dataAPI().then((responseApi) => setData(responseApi));
   }, []);
+
+  useEffect(() => {
+    localStorage.set("quote", data);
+  }, [data]);
 
   const handleFilterQuote = (ev) => {
     setInputFilterQuote(ev.target.value);
