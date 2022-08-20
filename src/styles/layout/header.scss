@@ -12,6 +12,9 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  @media all and (min-width: 768px) {
+    height: 400px;
+  }
 
   &__title {
     padding: 0 10px;
@@ -33,12 +36,20 @@
     outline: none;
     @media all and (min-width: 768px) {
       flex-direction: row;
+      align-items: center;
     }
   }
   &__label {
-    display: inline;
     font-size: 1rem;
-    margin: 0 15px;
+    margin: 0 15 0 0px;
+    vertical-align: middle;
+    font-size: 1.2rem;
+    @media all and (min-width: 768px) {
+      margin: 0 auto;
+    }
+    @media all and (min-width: 1240px) {
+      margin: 0 15px 0 150px;
+    }
   }
   &__text {
     padding: 0.15rem 0.5rem;
