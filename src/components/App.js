@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 /* import dataJSON from "../data/quotes.json"; load datas from jason */
 import dataAPI from "../services/api";
 import localStorage from "../services/localStorage";
+/* import QuoteList from './QuoteList'; */
 
 function App() {
   // load datas from jason
@@ -13,7 +14,8 @@ function App() {
   const [inputFilterCharacter, setInputFilterCharacter] = useState("all");
 
   useEffect(() => {
-    dataAPI().then((responseApi) => setData(responseApi));
+    if (data.lenght === 0)
+      dataAPI().then((responseApi) => setData(responseApi));
   }, []);
 
   useEffect(() => {
@@ -53,6 +55,10 @@ function App() {
 
     .map((item, index) => {
       return (
+        /*  <QuoteList
+        className = "quote__item",
+        key={index}/> */
+
         <li className="quote__item" key={index}>
           <p>
             {item.quote} - {item.character}

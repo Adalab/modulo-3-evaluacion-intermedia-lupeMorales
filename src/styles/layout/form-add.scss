@@ -1,3 +1,4 @@
+@import "../core/variables.scss";
 .form {
   margin-top: 4rem;
   display: flex;
@@ -10,9 +11,9 @@
     position: relative;
     padding: 0.5rem;
     width: 95%;
-    border: 2px solid #ddd;
+    border: 2px solid $grey;
     border-radius: 0.5rem;
-    background-color: #f8f8f8;
+    background-color: $background-white;
     outline: none;
     margin: 0 auto 25px;
   }
@@ -38,7 +39,7 @@
     width: 42%;
     padding: 0.15rem 0.5rem;
     border-radius: 5px;
-    border: 1px solid #666;
+    border: 1px solid $dark-grey;
     outline: none;
   }
 
@@ -47,11 +48,11 @@
     margin-bottom: 20px;
     border-radius: 0.5rem;
     border: none;
-    background-color: #94b49f;
+    background-color: $green;
     font-weight: bold;
     color: #fff;
     &:hover {
-      background-color: #d4bfba;
+      background-color: $coffee-colour;
     }
   }
 }

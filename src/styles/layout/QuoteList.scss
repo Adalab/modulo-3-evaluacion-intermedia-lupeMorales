@@ -1,3 +1,4 @@
+@import "../core/variables.scss";
 .quote {
   &__list {
     display: flex;
@@ -12,8 +13,8 @@
     width: 30rem;
     list-style: none;
     border-radius: 0.5rem;
-    border: 1px solid #ddd;
-    background-color: #d4bfba;
+    border: 1px solid $grey;
+    background-color: $coffee-colour;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     font-size: 1.2rem;
     font-weight: 400;
