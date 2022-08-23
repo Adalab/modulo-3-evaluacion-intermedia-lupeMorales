@@ -6,17 +6,17 @@ import localStorage from "../services/localStorage";
 /* import QuoteList from './QuoteList'; */
 
 function App() {
-  // load datas from jason
-  /* const [data, setData] = useState(dataJSON); */
+  /* const [data, setData] = useState(dataJSON);load datas from jason */
   const [data, setData] = useState(localStorage.get("quote", []));
   const [newQuote, setNewQuote] = useState({ quote: "", character: "" });
   const [inputFilterQuote, setInputFilterQuote] = useState("");
   const [inputFilterCharacter, setInputFilterCharacter] = useState("all");
   const [warning, setWarning] = useState("");
-
+  console.log(data);
   useEffect(() => {
-    if (data.lenght === 0)
+    if (data.lengh === 0) {
       dataAPI().then((responseApi) => setData(responseApi));
+    }
   }, []);
 
   useEffect(() => {

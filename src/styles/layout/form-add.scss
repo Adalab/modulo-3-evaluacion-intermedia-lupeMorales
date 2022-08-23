@@ -43,10 +43,13 @@
     outline: none;
   }
   &__warning {
-    width: 200px;
-    height: 20px;
     display: flex;
     justify-content: center;
+    width: 200px;
+    height: 20px;
+    font-size: 1.2rem;
+    color: $warning;
+    text-decoration: underline;
   }
 
   &__btn {
