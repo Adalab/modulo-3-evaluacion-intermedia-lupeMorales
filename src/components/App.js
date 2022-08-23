@@ -12,6 +12,7 @@ function App() {
   const [newQuote, setNewQuote] = useState({ quote: "", character: "" });
   const [inputFilterQuote, setInputFilterQuote] = useState("");
   const [inputFilterCharacter, setInputFilterCharacter] = useState("all");
+  const [warning, setWarning] = useState("");
 
   useEffect(() => {
     if (data.lenght === 0)
@@ -33,10 +34,19 @@ function App() {
   const handleNewQuote = (ev) => {
     setNewQuote({ ...newQuote, [ev.target.id]: ev.target.value });
   };
+  const removeWarning = () => {
+    setWarning("");
+  };
 
   const handleClickNewQuote = (ev) => {
     ev.preventDefault();
-    setData([...data, newQuote]);
+    if (newQuote.quote === "" || newQuote.character === "") {
+      setWarning("Revisa los campos");
+      setTimeout(removeWarning, 3000);
+    } else {
+      setData([...data, newQuote]);
+      setWarning("");
+    }
     resetInput();
   };
 
@@ -108,6 +118,7 @@ function App() {
       <ul className="quote__list">{renderQuotes}</ul>
       <form className="form form__container">
         <h2 className="form__title">Añadir una nueva frase:</h2>
+        <p className="form__warning">{warning}</p>
 
         <div className="form__inputs">
           <label className="form__label" htmlFor="quote">
