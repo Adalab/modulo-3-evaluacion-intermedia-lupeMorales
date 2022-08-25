@@ -1,5 +1,5 @@
 const FilterByCharacter = () => {
-  return (  <label className="header__label" htmlFor="filterCharacter">
+  return ( /*  <label className="header__label" htmlFor="filterCharacter">
   Filtrar por personaje
 </label>
 <select
@@ -16,6 +16,6 @@ const FilterByCharacter = () => {
   <option value="Phoebe">Phoebe</option>
   <option value="Rachel">Rachel</option>
   <option value="Ross">Ross</option>
-</select>);
+</select>) */;
 };
 export default FilterByCharacter;
