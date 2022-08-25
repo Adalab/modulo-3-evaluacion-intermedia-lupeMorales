@@ -54,8 +54,11 @@ function App() {
     setInputFilterCharacter(inputValue);
   };
 
-  const handleNewQuote = (inputValue) => {
-    setNewQuote({ ...newQuote, [inputValue.id]: inputValue });
+  const handleNewQuote = (data) => {
+    const inputId = data.id;
+    const inputValue = data.value;
+
+    setNewQuote({ ...newQuote, [inputId]: inputValue });
   };
 
   const handleClickNewQuote = (ev) => {

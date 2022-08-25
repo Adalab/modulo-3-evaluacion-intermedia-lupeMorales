@@ -1,6 +1,9 @@
 const AddNewQuote = (props) => {
   const handleNewQuote = (ev) => {
-    props.handleNewQuote(ev.target.value);
+    const inputId = ev.target.id;
+    const inputValue = ev.target.value;
+
+    props.handleNewQuote({ id: inputId, value: inputValue });
   };
   return (
     <form className="form form__container">
