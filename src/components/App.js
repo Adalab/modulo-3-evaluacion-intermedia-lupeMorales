@@ -5,8 +5,8 @@ import dataAPI from "../services/api";
 import localStorage from "../services/localStorage";
 /* import QuoteList from './QuoteList'; */
 //import components
-/* import Header from "./Header"; */
-import Filters from "./Filters";
+import Header from "./Header";
+
 import QuoteList from "./QuoteList";
 import AddNewQuote from "./AddNewQuote";
 
@@ -82,16 +82,12 @@ function App() {
   };
   return (
     <div className="App">
-      <header className="header">
-        <h1 className="header__title">Frases de Friends</h1>
-        <Filters
-          inputFilterQuote={inputFilterQuote}
-          handleFilterQuote={handleFilterQuote}
-          inputFilterCharacter={inputFilterCharacter}
-          handleFilterCharacter={handleFilterCharacter}
-        />
-      </header>
-
+      <Header
+        inputFilterQuote={inputFilterQuote}
+        handleFilterQuote={handleFilterQuote}
+        inputFilterCharacter={inputFilterCharacter}
+        handleFilterCharacter={handleFilterCharacter}
+      />
       <QuoteList quoteData={quoteFilters} />
       <AddNewQuote
         warning={warning}

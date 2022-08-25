@@ -1,8 +1,8 @@
+import "../styles/layout/AddNewQuote.scss";
 const AddNewQuote = (props) => {
   const handleNewQuote = (ev) => {
     const inputId = ev.target.id;
     const inputValue = ev.target.value;
-
     props.handleNewQuote({ id: inputId, value: inputValue });
   };
   return (

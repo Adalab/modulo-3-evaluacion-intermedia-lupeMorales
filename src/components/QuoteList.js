@@ -1,3 +1,4 @@
+import "../styles/layout/QuoteList.scss";
 import QuoteItem from "./QuoteItem";
 const QuoteList = (props) => {
   const quoteElements = props.quoteData.map((item, index) => {
