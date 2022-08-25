@@ -4,6 +4,10 @@ import { useState, useEffect } from "react";
 import dataAPI from "../services/api";
 import localStorage from "../services/localStorage";
 /* import QuoteList from './QuoteList'; */
+//import components
+/* import Header from "./Header"; */
+import Filters from "./Filters";
+import QuoteList from "./QuoteList";
 
 function App() {
   /* const [data, setData] = useState(dataJSON);load datas from jason */
@@ -14,7 +18,7 @@ function App() {
   const [warning, setWarning] = useState("");
   console.log(data);
   useEffect(() => {
-    if (data.lengh === 0) {
+    if (data.length === 0) {
       dataAPI().then((responseApi) => setData(responseApi));
     }
   }, []);
@@ -23,8 +27,8 @@ function App() {
     localStorage.set("quote", data);
   }, [data]);
 
-  const handleFilterQuote = (ev) => {
-    setInputFilterQuote(ev.target.value);
+  const handleFilterQuote = (inputValue) => {
+    setInputFilterQuote(inputValue);
   };
 
   const handleFilterCharacter = (ev) => {
@@ -49,14 +53,12 @@ function App() {
     }
     resetInput();
   };
-
-  const renderQuotes = data
-    .filter((item) => {
-      return item.quote
-        .toLowerCase()
-        .includes(inputFilterQuote.toLocaleLowerCase());
-    })
-    .filter((item) => {
+  const quoteFilters = data.filter((item) => {
+    return item.quote
+      .toLowerCase()
+      .includes(inputFilterQuote.toLocaleLowerCase());
+  });
+  /*    .filter((item) => {
       if (inputFilterCharacter === "all") {
         return true;
       }
@@ -64,18 +66,14 @@ function App() {
     })
 
     .map((item, index) => {
-      return (
-        /*  <QuoteList
-        className = "quote__item",
-        key={index}/> */
-
+      return; */ /* (
         <li className="quote__item" key={index}>
           <p>
             {item.quote} - {item.character}
           </p>
         </li>
-      );
-    });
+      ); */
+
   const resetInput = () => {
     setNewQuote({ quote: "", character: "" });
   };
@@ -83,39 +81,14 @@ function App() {
     <div className="App">
       <header className="header">
         <h1 className="header__title">Frases de Friends</h1>
-        <form className="header__search">
-          <label className="header__label" htmlFor="filter">
-            Filtrar por frase
-          </label>
-          <input
-            className="header__text"
-            type="search"
-            name="searchQuote"
-            value={inputFilterQuote}
-            onChange={handleFilterQuote}
-          ></input>
-          <label className="header__label" htmlFor="filterCharacter">
-            Filtrar por personaje
-          </label>
-          <select
-            className="header__text"
-            name="filterCharacter"
-            id="filterCharacter"
-            value={inputFilterCharacter}
-            onChange={handleFilterCharacter}
-          >
-            <option value="all">--</option>
-            <option value="Chandler">Chandler</option>
-            <option value="Joey">Joey</option>
-            <option value="Monica">Monica</option>
-            <option value="Phoebe">Phoebe</option>
-            <option value="Rachel">Rachel</option>
-            <option value="Ross">Ross</option>
-          </select>
-        </form>
+        <Filters
+          inputFilterQuote={inputFilterQuote}
+          handleFilterQuote={handleFilterQuote}
+        />
+        {/*     */}
       </header>
-
-      <ul className="quote__list">{renderQuotes}</ul>
+      {/*  <Header /> */}
+      <QuoteList quoteData={quoteFilters} />
       <form className="form form__container">
         <h2 className="form__title">Añadir una nueva frase:</h2>
         <p className="form__warning">{warning}</p>
