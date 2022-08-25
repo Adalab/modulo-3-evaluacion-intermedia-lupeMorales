@@ -7,7 +7,10 @@ const Filters = (props) => {
         inputFilterQuote={props.inputFilterQuote}
         handleFilterQuote={props.handleFilterQuote}
       />
-      <FilterByCharacter />
+      <FilterByCharacter
+        inputFilterCharacter={props.inputFilterCharacter}
+        handleFilterCharacter={props.handleFilterCharacter}
+      />
     </form>
   );
 };

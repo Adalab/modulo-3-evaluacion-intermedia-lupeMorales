@@ -53,26 +53,18 @@ function App() {
     }
     resetInput();
   };
-  const quoteFilters = data.filter((item) => {
-    return item.quote
-      .toLowerCase()
-      .includes(inputFilterQuote.toLocaleLowerCase());
-  });
-  /*    .filter((item) => {
+  const quoteFilters = data
+    .filter((item) => {
+      return item.quote
+        .toLowerCase()
+        .includes(inputFilterQuote.toLocaleLowerCase());
+    })
+    .filter((item) => {
       if (inputFilterCharacter === "all") {
         return true;
       }
       return item.character === inputFilterCharacter;
-    })
-
-    .map((item, index) => {
-      return; */ /* (
-        <li className="quote__item" key={index}>
-          <p>
-            {item.quote} - {item.character}
-          </p>
-        </li>
-      ); */
+    });
 
   const resetInput = () => {
     setNewQuote({ quote: "", character: "" });
@@ -84,10 +76,11 @@ function App() {
         <Filters
           inputFilterQuote={inputFilterQuote}
           handleFilterQuote={handleFilterQuote}
+          inputFilterCharacter={inputFilterCharacter}
+          handleFilterCharacter={handleFilterCharacter}
         />
-        {/*     */}
       </header>
-      {/*  <Header /> */}
+
       <QuoteList quoteData={quoteFilters} />
       <form className="form form__container">
         <h2 className="form__title">Añadir una nueva frase:</h2>
