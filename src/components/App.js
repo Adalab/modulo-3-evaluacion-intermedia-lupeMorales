@@ -79,6 +79,12 @@ function App() {
   const resetInput = () => {
     setNewQuote({ quote: "", character: "" });
   };
+  const pressEnter = (ev) => {
+    if (ev.keyCode === 13) {
+      ev.preventDefault();
+      return false;
+    }
+  };
   return (
     <div className="App">
       <header className="header">
@@ -93,6 +99,7 @@ function App() {
             name="searchQuote"
             value={inputFilterQuote}
             onChange={handleFilterQuote}
+            onKeyDown={pressEnter}
           ></input>
           <label className="header__label" htmlFor="filterCharacter">
             Filtrar por personaje
