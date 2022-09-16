@@ -12,9 +12,9 @@ function App() {
   const [inputFilterQuote, setInputFilterQuote] = useState("");
   const [inputFilterCharacter, setInputFilterCharacter] = useState("all");
   const [warning, setWarning] = useState("");
-  console.log(data);
+
   useEffect(() => {
-    if (data.lengh === 0) {
+    if (data.length === 0) {
       dataAPI().then((responseApi) => setData(responseApi));
     }
   }, []);

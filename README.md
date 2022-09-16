@@ -12,6 +12,9 @@
   </h3>
 </div>
 
+  > **Note**
+> En la rama "componetizar" está el código refactorizado en componetes
+
 <p>Aquí presento mi solución para el desafío planteado en la evaluación intermedia de programación con React del bootcamp de <a href="https://adalab.es/bootcamp-programacion/"> Desarrollo Web de Adalab. </a>   
 El reto consiste en crear un buscador de frases de personajes de Friends filtrando por personaje o por frase para lo cual se hace una llamada a la API. Además, incluir una sección para poder añadir nuevas frases que quedarán guardadas en el local storage.   
 Se trata de un diseño responsive que permite ser utilizado en cualquier dispositivo.</p>
