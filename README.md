@@ -22,8 +22,8 @@ Se trata de un diseño responsive que permite ser utilizado en cualquier disposi
 
 
 
-![movile](https://github.com/lupeMorales/friends-cuotes/blob/main/src/images/mobile_view.png?raw=true)
-![desktop](https://github.com/lupeMorales/friends-cuotes/blob/main/src/images/desktop_view.png?raw=true)
+![movile](./src/images/mobile_view.png)
+![desktop](./src/images/desktop_view.png)
 
 ## Para ejecutar el programa en tu ordenador
 
